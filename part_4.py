@@ -122,6 +122,9 @@ def create_new_book():
     except:
         pages = int(input("Please type a number for the page count - "))
     
+    with open("library.txt", "a") as f:
+        f.write(f"{title}, {author}, {year}, {rating}, {pages}\n")
+    
 
     book_dictionary = {
         "title": title,
@@ -135,6 +138,32 @@ def create_new_book():
 
 
 
+# def print_all_books(list_of_books):
+
+#     print("\nHere are all your books...\n")
+
+#     for book in list_of_books:
+#         title = book["title"]
+#         author = book["author"]
+#         year = book["year"]
+#         rating = book["rating"]
+#         pages = book["pages"]
+
+#         print(f"Title: {title}, Author: {author}, Year: {year}, Rating: {rating}, Pages: {pages}")
+
+
+# def view_books_original(book_source):
+
+#     print("\nHere are all your books...\n")
+    
+#     with open(book_source, "r") as f:
+#         file = f.readlines()
+        
+#         for line in file:
+#             title, author, year, rating, pages = line.split(", ")
+
+#             print(f"Title: {title}, Author: {author}, Year: {year}, Rating: {rating}, Pages: {pages}")
+
 def main_menu():
     
     menu_opened = True
@@ -146,8 +175,7 @@ def main_menu():
             my_library.append(new_book)
             print("Book added to the library!")
         elif choice.upper() == "V":
-            for book in my_library:
-                print(book)
+            print(my_library)
         elif choice.upper() == "S":
             title = input("What is the title of the book you are looking for? ")
             for book in my_library:

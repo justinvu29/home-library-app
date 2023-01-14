@@ -1,0 +1,4 @@
+Harry Potter, JK Rowling, 2000, 5, 250
+Harry Potter, JK Rowling, 2000, 5.0, 275
+A, B, 1919, 3.0, 211
+ADDED, A, 12, 1.0, 2
