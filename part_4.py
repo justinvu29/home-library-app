@@ -164,35 +164,35 @@ def create_new_book():
 
 #             print(f"Title: {title}, Author: {author}, Year: {year}, Rating: {rating}, Pages: {pages}")
 
-def main_menu():
+# def main_menu():
     
-    menu_opened = True
+#     menu_opened = True
 
-    while menu_opened is True:
-        choice = input("Welcome to the Book Library App! What would you like to do? \n(A)dd new book \n(V)iew all books \n(S)earch for book by title \n(C)ount of Books in Library \n(E)Exit \nType Choice Here:")
-        if choice.upper() == "A":
-            new_book = create_new_book()
-            my_library.append(new_book)
-            print("Book added to the library!")
-        elif choice.upper() == "V":
-            print(my_library)
-        elif choice.upper() == "S":
-            title = input("What is the title of the book you are looking for? ")
-            for book in my_library:
-                if book["title"] == title:
-                    print(book)
-                else: 
-                    print("book not found.")
-        elif choice.upper() == "C":
-            print(f"\nYou have a total of {len(my_library)} books.\n")
-        elif choice.upper() == "E":
-            print("Goodbye! Come Back Again Soon!")
-            menu_opened = False
-        else:
-            print("Invalid Option")
+#     while menu_opened is True:
+#         choice = input("Welcome to the Book Library App! What would you like to do? \n(A)dd new book \n(V)iew all books \n(S)earch for book by title \n(C)ount of Books in Library \n(E)Exit \nType Choice Here:")
+#         if choice.upper() == "A":
+#             new_book = create_new_book()
+#             my_library.append(new_book)
+#             print("Book added to the library!")
+#         elif choice.upper() == "V":
+#             print(my_library)
+#         elif choice.upper() == "S":
+#             title = input("What is the title of the book you are looking for? ")
+#             for book in my_library:
+#                 if book["title"] == title:
+#                     print(book)
+#                 else: 
+#                     print("book not found.")
+#         elif choice.upper() == "C":
+#             print(f"\nYou have a total of {len(my_library)} books.\n")
+#         elif choice.upper() == "E":
+#             print("Goodbye! Come Back Again Soon!")
+#             menu_opened = False
+#         else:
+#             print("Invalid Option")
 
 
-main_menu()
+# main_menu()
 
 
 

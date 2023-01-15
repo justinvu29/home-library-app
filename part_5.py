@@ -46,13 +46,12 @@ def view_books():
 
     print("\nHere are all your books...\n")
     
-with open("library.txt", "r") as f:
-    file = f.readlines()
+    with open("library.txt", "r") as f:
+        file = f.readlines()
 
-    for line in file:
-        title, author, year, rating, pages = line.split(", ")
-
-        print(f"Title: {title}, Author: {author}, Year: {year}, Rating: {rating}, Pages: {pages}")
+        for line in file:
+            title, author, year, rating, pages = line.split(", ")
+            print(f"Title: {title}, Author: {author}, Year: {year}, Rating: {rating}, Pages: {pages}")
 
 ### Step 3 - if __name__ == "__main__":
 
@@ -80,12 +79,13 @@ def main_menu():
         elif choice.upper() == "V":
             view_books()
         elif choice.upper() == "S":
-            title = input("What is the title of the book you are looking for? ")
-            for book in my_library:
-                if book["title"] == title:
-                    print(book)
-                else: 
-                    print("book not found.")
+            title_input = input("What is the title of the book you are looking for? ")
+            with open("library.txt", "r") as f:
+                file = f.readlines()
+                for book in file:
+                    title, author, year, rating, pages = book.split(", ")
+                    if title == title_input:
+                        print(book)
         elif choice.upper() == "C":
             print(f"\nYou have a total of {len(my_library)} books.\n")
         elif choice.upper() == "E":
@@ -94,8 +94,8 @@ def main_menu():
         else:
             print("Invalid Option")
 
-
-main_menu()
+if __name__ == "__main__":
+    main_menu()
 
 
 
