@@ -1,3 +1,4 @@
 Harry Potter, JK Rowling, 2000, 5, 250
 The Giver, Unknown, 2020, 4, 150
 Of Mice of Men, A man, 2002, 3, 250
+Green Eggs and Ham, Dr. Seuss, 2001, 2, 25

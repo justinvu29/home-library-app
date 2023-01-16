@@ -64,14 +64,56 @@ def view_books():
 
 ## Now follow the instructions in this final step. Expand your project. Clean up the code. Make your application functional. Great job getting your first Python application finished!
 
+def get_highest_rating():
+    with open("library.txt", "r") as f:
+        file = f.readlines()
+        highest_rating = 0
+        best_ranked_book = {}
+        for book in file:
+            title, author, year, rating, pages = book.split(", ")
+            rating = float(rating)
+            if rating > highest_rating:
+                highest_rating = rating
+                best_ranked_book = book  
+        print(f"The highest rated book is {best_ranked_book}")
 
+
+#get_highest_rating()
+
+def sort_by_rank(): 
+    with open("library.txt", "r") as f:
+        file = f.readlines()
+    library = []
+    for book in file:
+        title, author, year, rating, pages = book.strip().split(", ")
+        library.append({'title':title, 'author':author, 'year':year, 'rating':float(rating), 'pages':int(pages)})
+    sorted_books = sorted(library, key=lambda x: x['rating'], reverse=True)
+    for i, book in enumerate(sorted_books):
+        print (f"{i+1}. {book['title']} - {book['rating']}")
+
+#sort_by_rank()
+
+def get_lowest_rating():
+    with open("library.txt", "r") as f:
+        file = f.readlines()
+        lowest_rating = 5
+        worst_ranked_book = {}
+        for book in file:
+            title, author, year, rating, pages = book.split(", ")
+            rating = float(rating)
+            if rating < lowest_rating:
+                lowest_rating = rating
+                worst_ranked_book = book  
+        print(f"The lowest rated book is {worst_ranked_book}")
+
+#get_lowest_rating()
 
 def main_menu():
     
     menu_opened = True
 
     while menu_opened is True:
-        choice = input("Welcome to the Book Library App! What would you like to do? \n(A)dd new book \n(V)iew all books \n(S)earch for book by title \n(C)ount of Books in Library \n(E)xit \nType Choice Here:")
+        choice = input("Welcome to the Book Library App! What would you like to do? \n(A)dd new book \n(V)iew all books \n(S)earch for book by title \n(C)ount of Books in Library \n(H)ighest Rated Book \n(W)orst Ranked Book \n(O)rganize By Rank \n(E)xit \nType Choice Here:")
         if choice.upper() == "A":
             new_book = create_new_book()
             my_library.append(new_book)
@@ -88,6 +130,12 @@ def main_menu():
                         print(book)
         elif choice.upper() == "C":
             print(f"\nYou have a total of {len(my_library)} books.\n")
+        elif choice.upper() == "H":
+            get_highest_rating()
+        elif choice.upper() == "W":
+            get_lowest_rating()
+        elif choice.upper() == "O":
+            sort_by_rank()
         elif choice.upper() == "E":
             print("Goodbye! Come Back Again Soon!")
             menu_opened = False
