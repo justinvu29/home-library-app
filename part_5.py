@@ -113,7 +113,7 @@ def main_menu():
     menu_opened = True
 
     while menu_opened is True:
-        choice = input("Welcome to the Book Library App! What would you like to do? \n(A)dd new book \n(V)iew all books \n(S)earch for book by title \n(C)ount of Books in Library \n(H)ighest Rated Book \n(W)orst Ranked Book \n(O)rganize By Rank \n(E)xit \nType Choice Here:")
+        choice = input("Welcome to the Book Library App! What would you like to do? \n(A)dd new book \n(V)iew all books \n(S)earch for book by title \n(C)ount of Books in Library \n(H)ighest Rated Book \n(W)orst Ranked Book \n(O)rganize By Rank \n(E)xit \nPlease Enter Choice Here:")
         if choice.upper() == "A":
             new_book = create_new_book()
             my_library.append(new_book)
@@ -144,7 +144,6 @@ def main_menu():
 
 if __name__ == "__main__":
     main_menu()
-
 
 
 
